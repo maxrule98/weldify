@@ -79,7 +79,7 @@ const sumbitContactForm = async (e, contactForm, formStatus) => {
 
 	try {
 		const response = await fetch(
-			"https://formsubmit.co/ben.unthank@weldnet.co",
+			"https://formsubmit.co/67f2755a17e041c4bd37147b24699cf1",
 			{
 				method: "POST",
 				body: formData,
