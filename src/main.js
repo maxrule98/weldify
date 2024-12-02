@@ -46,29 +46,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const sumbitContactForm = async (e, contactForm, formStatus) => {
 	e.preventDefault();
-	console.log("FORM SUBMITTED");
+	// console.log("FORM SUBMITTED");
 
-	// Basic Validation
 	const name = document.getElementById("name").value;
 	const email = document.getElementById("email").value;
 	const message = document.getElementById("message").value;
+	const submitBtn = document.getElementById("contactSubmit");
+	const loader = document.getElementById("loader");
 
+	// console.log(e.target);
+
+	// submitBtn.setAttribute("disabled", true);
+	submitBtn.style.display = "none";
+	loader.style.display = "unset";
+
+	// Basic Validation
 	if (!name) {
 		formStatus.textContent = "Name is required.";
-		formStatus.backgroundColor = "red";
-		formStatus.color = "white";
+		formStatus.style.backgroundColor = "red";
+		formStatus.style.color = "white";
+
+		loader.style.display = "none";
+		submitBtn.style.display = "block";
 	}
 
 	if (!email || !validateEmail(email)) {
 		formStatus.textContent = "Email is required or invalid.";
-		formStatus.backgroundColor = "red";
-		formStatus.color = "white";
+		formStatus.style.backgroundColor = "red";
+		formStatus.style.color = "white";
+
+		loader.style.display = "none";
+		submitBtn.style.display = "block";
 	}
 
 	if (!message.length < 0) {
 		formStatus.textContent = "Message is required.";
-		formStatus.backgroundColor = "red";
-		formStatus.color = "white";
+		formStatus.style.backgroundColor = "red";
+		formStatus.style.color = "white";
+
+		loader.style.display = "none";
+		submitBtn.style.display = "block";
 	}
 
 	// Create FormData
@@ -85,7 +102,7 @@ const sumbitContactForm = async (e, contactForm, formStatus) => {
 				body: formData,
 			}
 		);
-		console.log(response);
+		// console.log(response);
 
 		// Fetch failed
 		if (!response.ok) {
@@ -94,8 +111,19 @@ const sumbitContactForm = async (e, contactForm, formStatus) => {
 
 		// On success
 		formStatus.textContent = `Thank you for your message, ${name}. I'll get back to you soon.`;
+		formStatus.style.backgroundColor = "green";
+		formStatus.style.color = "white";
+
+		loader.style.display = "none";
+		// submitBtn.style.display = "block";
 	} catch (err) {
+		// On Faliure
 		formStatus.textContent = "Something went wrong, please try again later.";
+		formStatus.style.backgroundColor = "red";
+		formStatus.style.color = "white";
+
+		loader.style.display = "none";
+		submitBtn.style.display = "block";
 	}
 };
 
