@@ -1,0 +1,129 @@
+/* Additional Styles for Dynamic Content and Form */
+:root {
+	--padding: 40px;
+}
+
+* {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+#hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 60vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+#hero__img {
+	transform: scale(1.1);
+	height: 100%;
+	width: 100%;
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+	background-size: cover;
+	background-image: url("https://images.unsplash.com/photo-1455165814004-1126a7199f9b?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+#hero__text {
+	align-self: flex-start;
+	width: 100%;
+	max-width: 500px;
+	/* border-radius: 20px; */
+	padding: calc(var(--padding) * 2) var(--padding);
+	color: white;
+	z-index: 10;
+	position: absolute;
+	border: 1px solid white;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.container {
+	padding: var(--padding);
+}
+
+.hero__links {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: row;
+	gap: 5px;
+}
+
+.hero__links a {
+	color: white;
+	text-decoration: none;
+	transition: color 0.2s ease-in-out;
+}
+.hero__links a:hover {
+	color: blue;
+	text-decoration: none;
+}
+
+.service-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 5px;
+}
+
+.service {
+	/* min-width: 275px;
+	max-width: 24%; */
+	flex: 1 1 calc(48%);
+	background: #ddd;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+	transition: scale 0.2s ease-in-out;
+}
+
+.service:hover {
+	scale: 0.95;
+}
+
+.service h3 {
+	margin-top: 0;
+	color: #444;
+}
+
+form {
+	background: #f4f4f4;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+
+form label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+form input,
+form textarea,
+form button {
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+form button {
+	background: #444;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+form button:hover {
+	background: #333;
+}
